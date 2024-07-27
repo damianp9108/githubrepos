@@ -1,11 +1,14 @@
 # GitHub Repos API
 
-This application allows you to list all non-fork GitHub repositories of a user and for each branch, it provides its name and last commit SHA.
+This application allows you to list all non-fork GitHub repositories of a user and for each branch it provides its name and last commit SHA.
 
 ## Requirements
 
-- Java 21
+- Java 22
 - Spring Boot 3
+- Gradle 8.9
+- Lombok 8.6
+- Git 2.45.2
 
 ## Running the Application
 
@@ -27,29 +30,18 @@ This application allows you to list all non-fork GitHub repositories of a user a
       ```json
       [
           {
-              "name": "repo-name",
-              "owner": {
-                  "login": "owner-login"
-              }
+              "repositoryName": "repo-name",
+              "ownerLogin": "owner-login",
+              "branches": [
+                  {
+                      "name": "branch-name",
+                      "lastCommitSha": "commit-sha"
+                  }   
+              ]
           }
       ]
       ```
 
-- **List Branches**
-    - URL: `/api/repos/{owner}/{repo}/branches`
-    - Method: GET
-    - Headers: `Accept: application/json`
-    - Response:
-      ```json
-      [
-          {
-              "name": "branch-name",
-              "commit": {
-                  "sha": "commit-sha"
-              }
-          }
-      ]
-      ```
 
 ## Error Handling
 
@@ -57,5 +49,5 @@ This application allows you to list all non-fork GitHub repositories of a user a
   ```json
   {
       "status": 404,
-      "message": "User not found"
+      "message": "User {username} not found"
   }
