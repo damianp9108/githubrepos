@@ -1,6 +1,7 @@
 package com.example.githubrepos.service;
 
 import com.example.githubrepos.client.GitHubClient;
+import com.example.githubrepos.entity.GitHubRepository;
 import com.example.githubrepos.exception.UserNotFoundException;
 import com.example.githubrepos.model.Branch;
 import com.example.githubrepos.model.GitHubRepositoryWithBranches;
@@ -18,18 +19,22 @@ public class GitHubService {
     private final GitHubClient gitHubClient;
 
     public List<GitHubRepositoryWithBranches> getRepositoriesWithBranches(String username, String accept) {
+
+        List<GitHubRepository> repositories;
         try {
-            return gitHubClient.getRepositories(username, accept).stream()
-                    .filter(repo -> !repo.isFork())
-                    .map(repo -> GitHubRepositoryWithBranches.builder()
-                            .repositoryName(repo.getName())
-                            .ownerLogin(repo.getOwner().getLogin())
-                            .branches(getBranches(repo.getOwner().getLogin(), repo.getName(), accept))
-                            .build())
-                    .collect(Collectors.toList());
+            repositories = gitHubClient.getRepositories(username, accept);
         } catch (FeignException.NotFound e) {
             throw new UserNotFoundException("User " + username + " not found");
         }
+        return repositories.stream()
+                .filter(repo -> !repo.isFork())
+                .map(repo -> GitHubRepositoryWithBranches.builder()
+                        .repositoryName(repo.getName())
+                        .ownerLogin(repo.getOwner().getLogin())
+                        .branches(getBranches(repo.getOwner().getLogin(), repo.getName(), accept))
+                        .build())
+                .collect(Collectors.toList());
+
     }
 
     private List<Branch> getBranches(String ownerLogin, String repositoryName, String accept) {
