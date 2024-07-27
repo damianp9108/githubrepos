@@ -1,7 +1,7 @@
 package com.example.githubrepos.client;
 
-import com.example.githubrepos.model.GitHubBranch;
-import com.example.githubrepos.model.GitHubRepository;
+import com.example.githubrepos.entity.GitHubBranch;
+import com.example.githubrepos.entity.GitHubRepository;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
