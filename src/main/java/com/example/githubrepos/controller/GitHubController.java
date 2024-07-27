@@ -19,19 +19,8 @@ public class GitHubController {
     @GetMapping("/users/{username}/repos")
     public ResponseEntity<List<GitHubRepositoryWithBranches>> getRepositories(@PathVariable("username") String username,
                                                                               @RequestHeader("Accept") String accept) {
-
         List<GitHubRepositoryWithBranches> repositories = gitHubService.getRepositoriesWithBranches(username, accept);
         return new ResponseEntity<>(repositories, HttpStatus.OK);
     }
-
-   /* @GetMapping("/repos/{owner}/{repo}/branches")
-    public ResponseEntity<List<GitHubBranch>> getBranches(@PathVariable("owner") String owner,
-                                                          @PathVariable("repo") String repo,
-                                                          @RequestHeader("Accept") String accept) {
-        List<GitHubBranch> branches = gitHubService.getBranches(owner, repo, accept);
-        return new ResponseEntity<>(branches, HttpStatus.OK);
-    }
-*/
-
 }
 
