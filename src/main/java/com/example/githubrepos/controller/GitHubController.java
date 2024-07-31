@@ -1,6 +1,6 @@
 package com.example.githubrepos.controller;
 
-import com.example.githubrepos.model.GitHubRepositoryWithBranches;
+import com.example.githubrepos.dto.GitHubRepositoryWithBranches;
 import com.example.githubrepos.service.GitHubService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

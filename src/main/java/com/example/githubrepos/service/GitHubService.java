@@ -1,15 +1,15 @@
 package com.example.githubrepos.service;
 
 import com.example.githubrepos.client.GitHubClient;
+import com.example.githubrepos.dto.Branch;
+import com.example.githubrepos.dto.GitHubRepositoryWithBranches;
 import com.example.githubrepos.entity.Commit;
 import com.example.githubrepos.entity.GitHubRepository;
 import com.example.githubrepos.entity.Owner;
 import com.example.githubrepos.exception.UserNotFoundException;
-import com.example.githubrepos.model.Branch;
-import com.example.githubrepos.model.GitHubRepositoryWithBranches;
-import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ public class GitHubService {
         List<GitHubRepository> repositories;
         try {
             repositories = gitHubClient.getRepositories(userName, accept);
-        } catch (FeignException.NotFound e) {
+        } catch (WebClientResponseException.NotFound e) {
             throw new UserNotFoundException("User " + userName + " not found");
         }
         return repositories.stream()

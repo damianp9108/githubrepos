@@ -2,22 +2,35 @@ package com.example.githubrepos.client;
 
 import com.example.githubrepos.entity.GitHubBranch;
 import com.example.githubrepos.entity.GitHubRepository;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
-@FeignClient(name = "githubClient", url = "https://api.github.com")
-public interface GitHubClient {
+@Component
+@RequiredArgsConstructor
+public class GitHubClient {
 
-    @GetMapping("/users/{username}/repos")
-    List<GitHubRepository> getRepositories(@PathVariable("username") String username,
-                                           @RequestHeader("Accept") String accept);
+    private final WebClient webClient;
 
-    @GetMapping("/repos/{owner}/{repo}/branches")
-    List<GitHubBranch> getBranches(@PathVariable("owner") String owner,
-                                   @PathVariable("repo") String repo,
-                                   @RequestHeader("Accept") String accept);
+    public List<GitHubRepository> getRepositories(String username, String accept) {
+        return webClient.get()
+                .uri("/users/{username}/repos", username)
+                .header("Accept", accept)
+                .retrieve()
+                .bodyToFlux(GitHubRepository.class)
+                .collectList()
+                .block();
+    }
+
+    public List<GitHubBranch> getBranches(String owner, String repo, String accept) {
+        return webClient.get()
+                .uri("/repos/{owner}/{repo}/branches", owner, repo)
+                .header("Accept", accept)
+                .retrieve()
+                .bodyToFlux(GitHubBranch.class)
+                .collectList()
+                .block();
+    }
 }
