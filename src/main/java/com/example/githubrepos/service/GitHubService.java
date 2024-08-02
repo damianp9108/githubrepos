@@ -22,13 +22,14 @@ public class GitHubService {
 
     private final GitHubClient gitHubClient;
 
-    public List<GitHubRepositoryWithBranches> getRepositoriesWithBranches(String userName, String accept) {
+    public List<GitHubRepositoryWithBranches> getRepositoriesWithBranches(String username, String accept) {
+        System.out.println("Fetching repositories for username: " + username);
 
         List<GitHubRepository> repositories;
         try {
-            repositories = gitHubClient.getRepositories(userName, accept);
+            repositories = gitHubClient.getRepositories(username, accept);
         } catch (WebClientResponseException.NotFound e) {
-            throw new UserNotFoundException("User " + userName + " not found");
+            throw new UserNotFoundException("User " + username + " not found");
         }
         return repositories.stream()
                 .filter(repo -> !repo.isFork())

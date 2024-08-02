@@ -1,0 +1,68 @@
+[
+  {
+    "repositoryName": "30daysoflaptops.github.io",
+    "ownerLogin": "mojombo",
+    "branches": [
+      {
+        "name": "gh-pages",
+        "lastCommitSha": "52ea8096a319125a2118393894a421de7893d1d4"
+      },
+      {
+        "name": "master",
+        "lastCommitSha": "a1edc8aae80b92497058ed7ffdde99ec2ea5efb4"
+      },
+      {
+        "name": "patch-1",
+        "lastCommitSha": "f06f5af6874ecd02c2ba7f52d9f6c48c9af14a2c"
+      }
+    ]
+  },
+  {
+    "repositoryName": "asteroids",
+    "ownerLogin": "mojombo",
+    "branches": [
+      {
+        "name": "master",
+        "lastCommitSha": "96cb01e8cdcc39d6c411805dddd60bf1e41eb8f9"
+      }
+    ]
+  },
+  {
+    "repositoryName": "bert",
+    "ownerLogin": "mojombo",
+    "branches": [
+      {
+        "name": "master",
+        "lastCommitSha": "c2abcc4868bb47909696c6a42c606de34e83ef70"
+      }
+    ]
+  },
+  {
+    "repositoryName": "bert.erl",
+    "ownerLogin": "mojombo",
+    "branches": [
+      {
+        "name": "master",
+        "lastCommitSha": "92e7e03f067eec99baba538e711fe6928c5a021a"
+      }
+    ]
+  },
+  {
+    "repositoryName": "bertrpc",
+    "ownerLogin": "mojombo",
+    "branches": [
+      {
+        "name": "04maint",
+        "lastCommitSha": "966c2b2aa3a822489b48ff71350733c1fd20b261"
+      },
+      {
+        "name": "eof",
+        "lastCommitSha": "3e35fc90d6976145118af46b0986c3b3b6fbfab7"
+      },
+      {
+        "name": "master",
+        "lastCommitSha": "c78721ecf6f4744f5d33a1733a8eab90dc01cb86"
+      }
+    ]
+  }
+]

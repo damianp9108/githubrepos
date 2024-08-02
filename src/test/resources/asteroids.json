@@ -1,0 +1,10 @@
+[
+  {
+    "name": "master",
+    "commit": {
+      "sha": "96cb01e8cdcc39d6c411805dddd60bf1e41eb8f9",
+      "url": "https://api.github.com/repos/mojombo/asteroids/commits/96cb01e8cdcc39d6c411805dddd60bf1e41eb8f9"
+    },
+    "protected": false
+  }
+]

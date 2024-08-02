@@ -1,0 +1,10 @@
+[
+  {
+    "name": "master",
+    "commit": {
+      "sha": "c2abcc4868bb47909696c6a42c606de34e83ef70",
+      "url": "https://api.github.com/repos/mojombo/bert/commits/c2abcc4868bb47909696c6a42c606de34e83ef70"
+    },
+    "protected": false
+  }
+]

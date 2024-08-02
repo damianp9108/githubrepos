@@ -1,8 +1,8 @@
 package com.example.githubrepos.entity;
 
-import lombok.Getter;
+import lombok.*;
 
-@Getter
+@Data
 public class Owner {
 
     private String login;

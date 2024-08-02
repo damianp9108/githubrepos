@@ -1,0 +1,26 @@
+[
+  {
+    "name": "04maint",
+    "commit": {
+      "sha": "966c2b2aa3a822489b48ff71350733c1fd20b261",
+      "url": "https://api.github.com/repos/mojombo/bertrpc/commits/966c2b2aa3a822489b48ff71350733c1fd20b261"
+    },
+    "protected": false
+  },
+  {
+    "name": "eof",
+    "commit": {
+      "sha": "3e35fc90d6976145118af46b0986c3b3b6fbfab7",
+      "url": "https://api.github.com/repos/mojombo/bertrpc/commits/3e35fc90d6976145118af46b0986c3b3b6fbfab7"
+    },
+    "protected": false
+  },
+  {
+    "name": "master",
+    "commit": {
+      "sha": "c78721ecf6f4744f5d33a1733a8eab90dc01cb86",
+      "url": "https://api.github.com/repos/mojombo/bertrpc/commits/c78721ecf6f4744f5d33a1733a8eab90dc01cb86"
+    },
+    "protected": false
+  }
+]
